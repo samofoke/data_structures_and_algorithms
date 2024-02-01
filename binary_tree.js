@@ -1,7 +1,7 @@
 //Looking at binary tree depth first treversal
 
 class Node {
-  constructor(valuei, left = null, right = null) {
+  constructor(value, left = null, right = null) {
     this.value = value;
     this.left = left;
     this.right = right;
@@ -16,10 +16,10 @@ const isBinaryValid = (arr) => {
     if (arr[i] === null) {
       continue;
     }
-    if (2 * i + 1 < n && arr[2 * i + 1] !== null && arr[i] <= arr[2 * i + 1]) {
+    if (2 * i + 1 < n && arr[2 * i + 1] !== null && arr[i] >= arr[2 * i + 1]) {
       return false;
     }
-    if (2 * i + 2 < n && arr[2 * i + 2] !== null && arr[i] <= arr[2 * i + 2]) {
+    if (2 * i + 2 < n && arr[2 * i + 2] !== null && arr[i] >= arr[2 * i + 2]) {
       return false;
     }
   }
@@ -82,3 +82,67 @@ const printBinaryTree = (arr) => {
     }
   }
 };
+
+console.log("Right-Leaning Tree (Skewed Right):");
+const treeArrayRight = [
+  1,
+  null,
+  2,
+  null,
+  null,
+  null,
+  3,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  4,
+];
+printBinaryTree(treeArrayRight);
+
+console.log("\nLeft-Leaning Tree (Skewed Left):");
+const treeArrayLeft = [
+  1,
+  2,
+  null,
+  3,
+  null,
+  null,
+  null,
+  4,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+];
+printBinaryTree(treeArrayLeft);
+
+console.log("\nSparse Tree:");
+const treeArraySparse = [
+  1,
+  2,
+  3,
+  null,
+  5,
+  6,
+  null,
+  null,
+  null,
+  null,
+  11,
+  null,
+  null,
+  null,
+  null,
+];
+printBinaryTree(treeArraySparse);
+
+console.log("\nComplete Tree:");
+const treeArrayComplete = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+printBinaryTree(treeArrayComplete);
